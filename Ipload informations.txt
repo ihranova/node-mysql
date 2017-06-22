@@ -1,0 +1,7 @@
+https://www.terlici.com/2015/05/16/uploading-files-locally.html
+
+https://code.msdn.microsoft.com/windowsdesktop/Upload-Files-Or-To-Server-15f69aaa
+https://howtonode.org/really-simple-file-uploads
+
+https://codeforgeek.com/2014/11/file-uploads-using-node-js/
+https://dzone.com/articles/upload-files-or-images-to-server-using-nodejs
