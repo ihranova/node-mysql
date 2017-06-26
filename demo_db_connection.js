@@ -1,3 +1,5 @@
+const express = require('express');
+const app = express();
 var mysql = require('mysql');
 var pd = require('pretty-data').pd;
 
@@ -9,6 +11,10 @@ var con = mysql.createConnection({
   database: 'cms' 
  
 });
+
+
+
+
 /*
 
 //CONNECT SUCCESS
@@ -74,7 +80,7 @@ con.connect(function(err) {
   });
 });
 
-*/
+
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
@@ -88,5 +94,33 @@ con.connect(function(err) {
   });
 });
 
+*/
+app.get('/', function (req, res) {
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  con.query ("SELECT * FROM users",function(err, db, fields){
+      if(err) throw err;
+      var users = db;  
+      //console.log(users);
+      //console.log("User 1 is: ")
+      var user =db[1];
+      console.log(user['name'] + ", " +user.pwd);
+      res.write('<h1>USERS ARE:</h1>');
+      var n = users.length;
+      for(var i = 0; i < n; i++){
+          var user = users[i];
+          res.write('<h1>'+ user.name+','+user.pwd+'</h1>');
+      }
+      res.end('<a href="http://localhost:3000/">Login</a>');
+  });
+});    
+    
+  
+});
+
+app.listen(4000, function () {
+  console.log('Example app listening on port 4000!')
+})
     
 
